@@ -1,0 +1,34 @@
+.top{
+    background-color: #F6C1A4;
+    display: flex;
+    justify-content: space-between;
+}
+.txt{
+    text-align: bottom;
+    text-align: left;
+    
+}
+.vine{
+    text-align: right;
+    
+    height: 100%;
+}
+.parent {
+    background-color: #F5F5EB;
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
+.child {
+    display: inline-block;
+    
+    padding: 1rem 1rem;
+    vertical-align: middle;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  .bottom{
+    text-align: center;
+    background-color: #F6C1A4;
+  }
