@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <img src="./Pictures/download.png" alt="Burch logo" width="100" height="25">
+    <img src="./Pictures/download.png" alt="Burch logo" class="logo">
     <h2 >International Burch University</h2>
-    <div>
-        <p>Firstname:</p> 
-        <input type="text" placeholder="Enter your firstname">
-    </div>
-    <div>
-        <p>Lastname:</p> 
-        <input type="text" placeholder="Enter your lastname">
+    <div class="parent">
+        <div class="child">
+            <p>Firstname:</p> 
+            <input type="text" placeholder="Enter your firstname">
+        </div>
+        <div class="child">
+            <p>Lastname:</p> 
+            <input type="text" placeholder="Enter your lastname">
+        </div>
     </div>
     <div class="block">
          <p></p>
@@ -33,27 +39,27 @@
         <label>Place of birth:</label>
         <input type="text">
     </div>
-    <div>
-        <p>Gender:</p>
-        <form>
+    <div class="parent">
+        <label class="child">Gender:</label>
+        <form class="child">
             <input type="radio" id="male" value="Male" name="Gender">
-            <label for="male">Male</label>
+            <label for="male">Male</label><br>
             <input type="radio" id="female" value="Female" name="Gender">
-            <label for="female">Female</label>
+            <label for="female">Female</label><br>
             <input type="radio" id="other" value="Other" name="Gender">
-            <label for="other">Other</label>
+            <label for="other">Other</label><br>
         </form>
     </div>
     <div>
-        <p>Email:</p>
+        <label>Email:</label>
         <input type="email">
     </div>
     <div>
-        <p>Phone:</p>
+        <label>Phone:</label>
         <input type="tel">
     </div>
     <div>
-        <p>Hair color:</p>
+        <label>Hair color:</label>
         <input type="color">
     </div>
     <div>
@@ -65,7 +71,7 @@
         <label for="12">Receive notifications</label>
     </div>
     <div>
-        <a href="./homepage.html"><input type="submit" value="Submit"></a>
+        <a href="./homepage.html"><input type="submit" value="Submit" class="button"></a>
     </div>
 
 
