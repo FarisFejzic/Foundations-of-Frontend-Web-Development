@@ -12,7 +12,7 @@ body{
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background-color: cyan;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +20,7 @@ body{
 }
 .logo{
     font-size: 30px;
-    color: white;
+    color: #191970;
     text-decoration: none;
     font-weight: 800;
 }
@@ -35,4 +35,74 @@ body{
 .navbar a:hover{
     color: #4169e1;
     
+}
+
+.home{
+    height: 100vh;
+    background: linear-gradient( -90deg,#191970 65%,white 35%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+.home-image{
+    width: 500px;
+    border-radius: 50%;
+    
+    height: 500px;
+    background: #191970;
+    left: 100%;
+    border: 25px solid white;
+    display: flex;
+    justify-content: center;
+
+}
+.home-image img{
+    position: relative;
+    width: 450px;
+    height: 450px;
+}
+.content{
+    max-width: 600px;
+    color: white;
+    text-align: right;
+}
+.content h1{
+    font-size: 55px !important;
+    line-height: 1.2 !important;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+.content h3{
+    font-size: 40px !important;
+    color: #4169e1 !important;
+    -webkit-text-stroke: .5px white !important;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.media{
+    margin: 25px 0 40px;
+}
+
+.media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: .3s;
+}
+.media a:hover{
+    color: white;
+    background: #4169e1;
+    border-color: #4169e1;
+    box-shadow: 0 0 10px #4169e1;
 }
