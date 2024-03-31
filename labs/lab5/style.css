@@ -1,0 +1,20 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    cursor: pointer;
+}
+
+.sorted {
+    background-color: #f1f1f1;
+}
+
+
