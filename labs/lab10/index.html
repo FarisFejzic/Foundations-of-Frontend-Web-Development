@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+</head>
+<body>
+
+<form name="registration" id="registrationForm">
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" name="firstname">
+    
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" name="lastname">
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    
+    <button type="submit">Register</button>
+</form>
+
+<script>
+$(function() {
+
+   $("form[name='registration']").validate({
+     rules: {
+       firstname: "required",
+       lastname: "required",
+       email: {
+         required: true,
+         email: true
+       },
+       password: {
+         required: true,
+         minlength: 8
+       }
+     },
+     messages: {
+       firstname: "Please enter your first name",
+       lastname: "Please enter your last name",
+       password: {
+         required: "Please provide a password",
+         minlength: "Your password must be at least 8 characters long"
+       },
+       email: "Please enter a valid email address"
+     },
+     submitHandler: function(form) {
+       form.submit();
+     }
+   });
+});
+</script>
+
+</body>
+</html>

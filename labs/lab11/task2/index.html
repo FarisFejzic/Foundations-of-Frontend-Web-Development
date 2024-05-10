@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My IP Information</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>My IP Information</h1>
+    <table id="ipInfoTable"></table>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "https://ipapi.co/json/", 
+                dataType: "json",
+                success: function(data) {
+                    
+                    var headerRow = $('<tr></tr>').appendTo('#ipInfoTable');
+                    headerRow.append('<th>IP Address</th>');
+                    headerRow.append('<th>City</th>');
+                    headerRow.append('<th>Region</th>');
+                    headerRow.append('<th>Country</th>');
+                    headerRow.append('<th>Latitude</th>');
+                    headerRow.append('<th>Longitude</th>');
+                    headerRow.append('<th>org</th>'); 
+                    headerRow.append('<th>Calling Code</th>'); 
+                    headerRow.append('<th>Currency</th>'); 
+                    headerRow.append('<th>Languages</th>'); 
+                    headerRow.append('<th>ASN</th>'); 
+                   
+                    var infoRow = $('<tr></tr>').appendTo('#ipInfoTable');
+                    infoRow.append('<td>' + data.ip + '</td>');
+                    infoRow.append('<td>' + data.city + '</td>');
+                    infoRow.append('<td>' + data.region + '</td>');
+                    infoRow.append('<td>' + data.country_name + '</td>');
+                    infoRow.append('<td>' + data.latitude + '</td>');
+                    infoRow.append('<td>' + data.longitude + '</td>');
+                    infoRow.append('<td>' + (data.org || 'N/A') + '</td>');
+                    infoRow.append('<td>' + (data.calling_code || 'N/A') + '</td>');
+                    infoRow.append('<td>' + (data.currency || 'N/A') + '</td>'); 
+                    infoRow.append('<td>' + (data.languages || 'N/A') + '</td>'); 
+                    infoRow.append('<td>' + (data.asn || 'N/A') + '</td>');
+                    
+                    
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("Error fetching IP info:", textStatus, errorThrown);
+                    
+                }
+            });
+        });
+    </script>
+</body>
+</html>
