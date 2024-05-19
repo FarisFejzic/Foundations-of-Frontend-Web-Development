@@ -8,6 +8,10 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <!--Toastr-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr/latest/toastr.min.js"></script>
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -78,20 +82,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
+                    <!--Theme change-->
+                    <div class="theme-switcher">
+                        <label for="theme-slider">Theme:</label>
+                        <input type="range" min="0" max="100" value="50" id="theme-slider" class="form-range">
+                    </div>
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">Services</a>
                     <a href="package.html" class="nav-item nav-link">Packages</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="destination.html" class="dropdown-item">Destination</a>
-                            <a href="booking.html" class="dropdown-item">Booking</a>
-                            <a href="team.html" class="dropdown-item">Travel Guides</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
+                    <!--Accordion dropdown menu-->
+                    <div class="nav-item">
+                        <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#pagesCollapse" aria-expanded="false" aria-controls="pagesCollapse">Pages</a>
+                        <div id="pagesCollapse" class="collapse" aria-labelledby="pagesHeading">
+                          <ul class="list-group list-group-flush">
+                            <li class="group-item"><a href="destination.html">Destination</a></li>
+                            <li class="group-item"><a href="booking.html">Booking</a></li>
+                            <li class="group-item"><a href="team.html">Travel Guides</a></li>
+                            <li class="group-item"><a href="testimonial.html">Testimonial</a></li>
+                            <li class="group-item"><a href="404.html" onclick="showErrorNotification()">404 Page</a></li>
+                          </ul>
                         </div>
-                    </div>
+                      </div>
+                      
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
                 <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
@@ -244,48 +257,63 @@
     <!-- Service End -->
 
 
-    <!-- Destination Start -->
+    <!-- Destination Start/Interactive gallery -->
     <div class="container-xxl py-5 destination">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Destination</h6>
-                <h1 class="mb-5">Popular Destination</h1>
+              <h6 class="section-title bg-white text-center text-primary px-3">Destination</h6>
+              <h1 class="mb-5">Popular Destination</h1>
             </div>
             <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/destination-1.jpg" alt="">
-                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">30% OFF</div>
-                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Thailand</div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/destination-2.jpg" alt="">
-                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">25% OFF</div>
-                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Malaysia</div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/destination-3.jpg" alt="">
-                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">35% OFF</div>
-                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Australia</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/destination-4.jpg" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">20% OFF</div>
-                        <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Indonesia</div>
+              <div class="col-lg-7 col-md-6">
+                <div class="row g-3">
+                  <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                    <a class="position-relative d-block overflow-hidden image-link" href="#">
+                      <img class="img-fluid" src="img/destination-1.jpg" alt="">
+                      <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">30% OFF</div>
+                      <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Thailand</div>
+                    </a>
+                  </div>
+                  <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                    <a class="position-relative d-block overflow-hidden image-link" href="#">
+                      <img class="img-fluid" src="img/destination-2.jpg" alt="">
+                      <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">25% OFF</div>
+                      <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Malaysia</div>
+                    </a>
+                  </div>
+                  <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                    <a class="position-relative d-block overflow-hidden image-link" href="#">
+                        <img class="img-fluid" src="img/destination-3.jpg" alt="">
+                        <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">35% OFF</div>
+                        <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Australia</div>
                     </a>
                 </div>
+                  
+                </div>
+                </div>
+              <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                <a class="position-relative d-block h-100 overflow-hidden image-link" href="#">
+                  <img class="img-fluid position-absolute w-100 h-100" src="img/destination-4.jpg" alt="" style="object-fit: cover;">
+                  <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">20% OFF</div>
+                  <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Indonesia</div>
+                </a>
+              </div>
             </div>
-        </div>
+          
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered custom-size">
+                <div class="modal-content h-100">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <img id="modal-image" src="" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
     <!-- Destination Start -->
 
@@ -709,6 +737,55 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!--My scripts-->
+    <!--Interactive gallery-->
+    <script>
+        const imageLinks = document.querySelectorAll('.image-link');
+        const modalImage = document.getElementById('modal-image');
+        
+        imageLinks.forEach(link => {
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+        
+            const imageUrl = link.querySelector('img').src;
+            modalImage.src = imageUrl;
+        
+            const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+            modal.show();
+        
+            // Set image to full size after modal shows (ensures image is loaded)
+            modalImage.onload = () => {
+              modalImage.style.width = '100%';
+              modalImage.style.height = 'auto';
+            };
+          });
+        });
+        
+        // Close modal when clicking the close button (optional)
+        const closeButton = document.querySelector('.btn-close');
+        
+        closeButton.addEventListener('click', () => {
+          modalImage.src = "";
+        });
+    </script>
+    <script>
+        const themeSlider = document.getElementById('theme-slider');
+        const rootElement = document.documentElement;
+    
+        themeSlider.addEventListener('input', () => {
+          const sliderValue = themeSlider.value;
+          const primaryColor = `hsl(${sliderValue}, 100%, 50%)`; // Generate color based on slider value
+    
+          rootElement.style.setProperty('--primary', primaryColor);
+        });
+    </script>
+    <script>
+        function showErrorNotification() {
+        alert("This page is not found! (Error 404)"); // Simulate Toastr notification (limited functionality)
+}
+
+    </script>    
+        
 </body>
 
 </html>
