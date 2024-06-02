@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr/latest/toastr.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -88,7 +90,7 @@
                     <a href="#about" class="nav-item nav-link">About</a>
                     <a href="#service" class="nav-item nav-link">Services</a>
                     <a href="#package" class="nav-item nav-link">Packages</a>
-                    <button id="themeToggleBtn" class="btn btn-primary">Toggle Theme</button>
+                    
 
                     
                     <!--Accordion dropdown menu-->
@@ -107,7 +109,7 @@
                       
                     
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                <button id="themeToggleBtn" class="btn btn-primary rounded-pill py-2 px-4">Toggle Theme</button>
             </div>
         </nav>
 
@@ -173,83 +175,83 @@
 
     <!-- Service Start -->
     <div class="container-xxl py-5" id="service">
-        <div class="container " >
+        <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
                 <h1 class="mb-5">Our Services</h1>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5>WorldWide Tours</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+            <div class="accordion" id="servicesAccordion">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item rounded pt-3">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                                        <h5 class="mb-0">WorldWide Tours</h5>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#servicesAccordion">
+                                    <div class="accordion-body">
+                                        <p class="droptext">Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
-                            <h5>Hotel Reservation</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                    
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item rounded pt-3">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+                                        <h5 class="mb-0">Hotel Reservation</h5>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#servicesAccordion">
+                                    <div class="accordion-body">
+                                        <p class="droptext">Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
-                            <h5>Travel Guides</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item rounded pt-3">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                                        <h5 class="mb-0">Travel Guides</h5>
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#servicesAccordion">
+                                    <div class="accordion-body">
+                                        <p class="droptext">Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-cog text-primary mb-4"></i>
-                            <h5>Event Management</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="service-item rounded pt-3">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <i class="fa fa-3x fa-cog text-primary mb-4"></i>
+                                        <h5 class="mb-0">Event Management</h5>
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#servicesAccordion">
+                                    <div class="accordion-body">
+                                        <p class="droptext">Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5>WorldWide Tours</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
-                            <h5>Hotel Reservation</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
-                            <h5>Travel Guides</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item rounded pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-cog text-primary mb-4"></i>
-                            <h5>Event Management</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -427,26 +429,26 @@
                     </div>
                     <div class="col-md-6">
                         <h1 class="text-white mb-4">Book A Tour</h1>
-                        <form>
+                        <form id="bookingForm">
                             <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
+                              <div class="col-md-6">
+                                <div class="form-floating">
+                                  <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name" required>
+                                  <label for="name">Your Name</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control bg-transparent" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-floating">
+                                  <input type="email" class="form-control bg-transparent" id="email" placeholder="Your Email" required>
+                                  <label for="email">Your Email</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
-                                    </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-floating date" id="date3" data-target-input="nearest">
+                                  <input type="text" class="form-control bg-transparent datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" required>
+                                  <label for="datetime">Date & Time</label>
                                 </div>
+                              </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-select bg-transparent" id="select1">
@@ -597,7 +599,7 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="Testimonial">
         <div class="container">
             <div class="text-center">
                 <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
@@ -635,19 +637,33 @@
 
     <div class="container-fluid bg-primary py-5 mb-5 hero-header">
         <div class="container py-5">
-          <div class="row justify-content-center py-5">
-            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-              <h1 class="display-3 text-white mb-3 animated slideInDown">Add your Location</h1>
-              
-              <div class="position-relative w-75 mx-auto animated slideInDown">
-                <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" id="locationInput" placeholder="Eg: Thailand">
-                <button type="button" id="addButton" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Add</button>
-              </div>
+            <div class="row justify-content-center py-5">
+                <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Add your Location</h1>
+                    
+                    <div class="position-relative w-75 mx-auto animated slideInDown">
+                        <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Thailand">
+                        <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Add</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      
+    </div>
+    <div class="container py-5">
+        <table id="placesTable" class="table">
+            <thead>
+                <tr>
+                    <th>Places</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+
         
 
     <!-- Footer Start -->
@@ -746,6 +762,7 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     
+    
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
@@ -768,42 +785,6 @@
             });
         });
     </script>
-    <script>
-        $(document).ready(function() {
-          $("#addButton").click(function() {
-            const locationName = $("#locationInput").val();
-            
-            // Check for empty input
-            if (!locationName) {
-              alert("Please enter a location name");
-              return; // Exit if empty
-            }
-            
-            // Prepare data object
-            const newLocation = { name: locationName };
-            
-            // Access existing data (assuming it's already stored)
-            let existingData = localStorage.getItem("reservations");
-            if (!existingData) {
-              existingData = "[]"; // Initialize empty array if not found
-            }
-            
-            // Parse existing data and add new location
-            const parsedData = JSON.parse(existingData);
-            parsedData.push(newLocation);
-            
-            // Stringify updated data and store in Local Storage
-            const updatedDataString = JSON.stringify(parsedData);
-            localStorage.setItem("reservations", updatedDataString);
-            
-            // Clear input field
-            $("#locationInput").val("");
-            
-            // Display success message (optional)
-            alert("Location added successfully!");
-          });
-        });
-      </script>
 
 
    

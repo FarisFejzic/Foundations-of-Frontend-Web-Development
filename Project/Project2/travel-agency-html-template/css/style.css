@@ -489,3 +489,9 @@
   .toggle-content {
     display: none;
 }
+.group-item{
+    color: var(--bs-primary)!important;
+}
+.droptext{
+    color: var(--dark)!important;
+}

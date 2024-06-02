@@ -182,4 +182,97 @@ document.getElementById('themeToggleBtn').addEventListener('click', function() {
     }
   });
 
-  //Form reservation
+  //Edit and delete
+  async function populateTable() {
+    try {
+        const response = await fetch('reservations.json');
+        const data = await response.json();
+
+        const tableBody = document.querySelector('#placesTable tbody');
+
+        data.forEach(place => {
+            const row = document.createElement('tr');
+
+            // Create cell for place name
+            const placeCell = document.createElement('td');
+            placeCell.textContent = place.name;
+            row.appendChild(placeCell);
+
+            // Create cell for delete button
+            const deleteButtonCell = document.createElement('td');
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.classList.add('btn', 'btn-primary', 'py-2', 'px-4'); // Add classes to the button
+            deleteButton.addEventListener('click', () => {
+                row.remove(); // Delete the row when the button is clicked
+            });
+            deleteButtonCell.appendChild(deleteButton);
+            row.appendChild(deleteButtonCell);
+
+            // Create cell for edit button
+            const editButtonCell = document.createElement('td');
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.classList.add('btn', 'btn-primary', 'py-2', 'px-4'); // Add classes to the button
+            editButton.addEventListener('click', () => {
+                const newName = prompt('Enter new name for the place:');
+                if (newName !== null && newName.trim() !== '') {
+                    placeCell.textContent = newName; // Update the place name in the cell
+                }
+            });
+            editButtonCell.appendChild(editButton);
+            row.appendChild(editButtonCell);
+
+            // Append row to table body
+            tableBody.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Call the populateTable function when the page loads
+document.addEventListener('DOMContentLoaded', populateTable);
+
+
+//Form
+$(document).ready(function() {
+  $("#bookingForm").validate({
+    rules: {
+      name: "required",
+      email: {
+        required: true,
+        email: true
+      },
+      datetime: "required",
+      select1: "required",
+      
+    },
+    messages: {
+      name: "Please enter your name.",
+      email: {
+        required: "Please enter your email address.",
+        email: "Please enter a valid email address."
+      },
+      datetime: "Please select your desired date and time.",
+      select1: "Please select your destination.",
+      
+    },
+    submitHandler: function(form) {
+      // Prevent default form submission
+      event.preventDefault();
+
+      // Get form data (consider adding logic for more complex validation here)
+      var data = {
+        name: $("#name").val(),
+        email: $("#email").val(),
+        date: $("#datetime").val(),
+        destination: $("#select1").val()
+      };
+
+      // Implement form submission logic (e.g., saving data or sending to server)
+      console.log("Booking data:", data);
+      $("#bookingForm").html("<div class='alert alert-success'>Booking successful!</div>"); // Replace with your desired submission logic
+    }
+  });
+});
