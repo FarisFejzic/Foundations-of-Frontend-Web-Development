@@ -97,7 +97,7 @@
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: var(--primary) !important;
+    color: var(--bs-primary) !important;
 }
 
 .navbar-light .navbar-brand img {
@@ -154,7 +154,7 @@
         height: 2px;
         bottom: -1px;
         left: 50%;
-        background: var(--primary);
+        background: var(--bs-primary) !important;
         transition: .5s;
     }
 
@@ -197,7 +197,7 @@
     height: 2px;
     top: 4px;
     left: -40px;
-    background: var(--primary);
+    background: var(--bs-primary) !important;
     z-index: -1;
 }
 
@@ -208,7 +208,7 @@
     height: 2px;
     bottom: 5px;
     left: -60px;
-    background: var(--primary);
+    background: var(--bs-primary) !important;
     z-index: -1;
 }
 
@@ -230,7 +230,7 @@
 }
 
 .service-item:hover {
-    background: var(--primary);
+    background: var(--bs-primary) !important;
 }
 
 .service-item * {
@@ -290,13 +290,13 @@
 
 .team-item .btn {
     background: #FFFFFF;
-    color: var(--primary);
+    color: var(--bs-primary) !important;
     border-radius: 20px;
-    border-bottom: 1px solid var(--primary);
+    border-bottom: 1px solid var(--bs-primary) !important;
 }
 
 .team-item .btn:hover {
-    background: var(--primary);
+    background: var(--bs-primary) !important;
     color: #FFFFFF;
 }
 
@@ -344,8 +344,8 @@
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item {
-    background: var(--primary) !important;
-    border-color: var(--primary) !important;
+    background: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item * {
@@ -371,8 +371,8 @@
 }
 
 .testimonial-carousel .owl-dot.active {
-    background: var(--primary);
-    border-color: var(--primary);
+    background: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
 }
 
 
@@ -392,7 +392,7 @@
 }
 
 .footer .btn.btn-social:hover {
-    color: var(--primary);
+    color: var(--bs-primary) !important;
 }
 
 .footer .btn.btn-link {
@@ -445,9 +445,9 @@
     max-width: 800px;  /* Adjust width as needed */
     max-height: 80vh;   /* Adjust height as needed (vh: viewport height) */
   }
-[style*="color: var(--primary)"],
-[style*="background-color: var(--primary)"] {
-  color: var(--primary); /* Initially set to primary color */
+[style*="color: var(--bs-primary)"],
+[style*="background-color: var(--bs-primary)"] {
+  color: var(--bs-primary); /* Initially set to primary color */
   transition: color 0.5s ease-in-out;  /* Add smooth color transition */
 }
 .notification {
@@ -468,4 +468,24 @@
   .notification.shown {
     opacity: 1; /* Make notification visible */
   }
+
+  :root {
+    --bs-primary: #86B817; /* Green */
+    --bs-secondary: #FE8800; /* Orange */
+  }
   
+  .btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+  }
+  
+  .text-primary {
+    color: var(--bs-primary) !important;
+  }
+  
+  .bg-primary {
+    background-color: var(--bs-primary) !important;
+  }
+  .toggle-content {
+    display: none;
+}

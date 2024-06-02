@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <div class="col-md-6">
+        <div class="form-floating">
+            <select class="form-select bg-transparent" id="select1">
+                <option value="">Select Destination</option>
+            </select>
+            <label for="select1">Destination</label>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'reservations.json',  // Ensure this path is correct
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var select = $('#select1');
+                    $.each(data, function(index, item) {
+                        var option = $('<option></option>').attr('value', item.name).text(item.name);
+                        select.append(option);
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Failed to load reservations.json:', textStatus, errorThrown);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

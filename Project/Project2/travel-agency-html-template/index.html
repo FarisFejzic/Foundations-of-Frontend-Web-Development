@@ -11,6 +11,7 @@
     <!--Toastr-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr/latest/toastr.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -47,7 +48,7 @@
 
 
     <!-- Topbar Start -->
-    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block" id="home">
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
@@ -83,29 +84,28 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <!--Theme change-->
-                    <div class="theme-switcher">
-                        <label for="theme-slider">Theme:</label>
-                        <input type="range" min="0" max="100" value="50" id="theme-slider" class="form-range">
-                    </div>
-                    <a href="#about" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <a href="package.html" class="nav-item nav-link">Packages</a>
+                    <a href="#home" class="nav-item nav-link active">Home</a>
+                    <a href="#about" class="nav-item nav-link">About</a>
+                    <a href="#service" class="nav-item nav-link">Services</a>
+                    <a href="#package" class="nav-item nav-link">Packages</a>
+                    <button id="themeToggleBtn" class="btn btn-primary">Toggle Theme</button>
+
+                    
                     <!--Accordion dropdown menu-->
                     <div class="nav-item">
                         <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#pagesCollapse" aria-expanded="false" aria-controls="pagesCollapse">Pages</a>
                         <div id="pagesCollapse" class="collapse" aria-labelledby="pagesHeading">
                           <ul class="list-group list-group-flush">
-                            <li class="group-item"><a href="destination.html">Destination</a></li>
-                            <li class="group-item"><a href="booking.html">Booking</a></li>
-                            <li class="group-item"><a href="team.html">Travel Guides</a></li>
-                            <li class="group-item"><a href="testimonial.html">Testimonial</a></li>
-                            <li class="group-item"><a href="404.html" onclick="showErrorNotification()">404 Page</a></li>
+                            <li class="group-item"><a href="#destination">Destination</a></li>
+                            <li class="group-item"><a href="#booking">Booking</a></li>
+                            <li class="group-item"><a href="#team">Travel Guides</a></li>
+                            <li class="group-item"><a href="#testimonial">Testimonial</a></li>
+                            <li class="group-item"><a href="" onclick="showErrorNotification()">404 Page</a></li>
                           </ul>
                         </div>
                       </div>
                       
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    
                 </div>
                 <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
             </div>
@@ -172,8 +172,8 @@
 
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
+    <div class="container-xxl py-5" id="service">
+        <div class="container " >
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
                 <h1 class="mb-5">Our Services</h1>
@@ -258,7 +258,7 @@
 
 
     <!-- Destination Start/Interactive gallery -->
-    <div class="container-xxl py-5 destination">
+    <div class="container-xxl py-5 destination" id="destination">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
               <h6 class="section-title bg-white text-center text-primary px-3">Destination</h6>
@@ -319,7 +319,7 @@
 
 
     <!-- Package Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" id="package">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>
@@ -345,9 +345,9 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                            <p id="toggleText" class="toggle-content">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" id="readMoreBtn" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
                                 <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Book Now</a>
                             </div>
                         </div>
@@ -372,9 +372,9 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                            <p id="toggleText2" class="toggle-content">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" id="readMoreBtn2" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
                                 <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Book Now</a>
                             </div>
                         </div>
@@ -399,9 +399,9 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                            <p id="toggleText3" class="toggle-content">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" id="readMoreBtn3" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
                                 <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Book Now</a>
                             </div>
                         </div>
@@ -414,7 +414,7 @@
 
 
     <!-- Booking Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="booking">
         <div class="container">
             <div class="booking p-5">
                 <div class="row g-5 align-items-center">
@@ -450,19 +450,14 @@
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-select bg-transparent" id="select1">
-                                            <option value="1">Destination 1</option>
-                                            <option value="2">Destination 2</option>
-                                            <option value="3">Destination 3</option>
+                                            <option value="">Select Destination</option>
                                         </select>
                                         <label for="select1">Destination</label>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div>
+                                
+
+                                
                                 <div class="col-12">
                                     <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
                                 </div>
@@ -524,7 +519,7 @@
 
 
     <!-- Team Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" id="team">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Travel Guide</h6>
@@ -637,6 +632,22 @@
         </div>
     </div>
     <!-- Testimonial End -->
+
+    <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <div class="container py-5">
+          <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+              <h1 class="display-3 text-white mb-3 animated slideInDown">Add your Location</h1>
+              
+              <div class="position-relative w-75 mx-auto animated slideInDown">
+                <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" id="locationInput" placeholder="Eg: Thailand">
+                <button type="button" id="addButton" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
         
 
     <!-- Footer Start -->
@@ -734,57 +745,68 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <!--My scripts-->
-    <!--Interactive gallery-->
     <script>
-        const imageLinks = document.querySelectorAll('.image-link');
-        const modalImage = document.getElementById('modal-image');
-        
-        imageLinks.forEach(link => {
-          link.addEventListener('click', (event) => {
-            event.preventDefault();
-        
-            const imageUrl = link.querySelector('img').src;
-            modalImage.src = imageUrl;
-        
-            const modal = new bootstrap.Modal(document.getElementById('imageModal'));
-            modal.show();
-        
-            // Set image to full size after modal shows (ensures image is loaded)
-            modalImage.onload = () => {
-              modalImage.style.width = '100%';
-              modalImage.style.height = 'auto';
-            };
+        $(document).ready(function() {
+            $.ajax({
+                url: 'reservations.json',  // Ensure this path is correct
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var select = $('#select1');
+                    $.each(data, function(index, item) {
+                        var option = $('<option></option>').attr('value', item.name).text(item.name);
+                        select.append(option);
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Failed to load reservations.json:', textStatus, errorThrown);
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+          $("#addButton").click(function() {
+            const locationName = $("#locationInput").val();
+            
+            // Check for empty input
+            if (!locationName) {
+              alert("Please enter a location name");
+              return; // Exit if empty
+            }
+            
+            // Prepare data object
+            const newLocation = { name: locationName };
+            
+            // Access existing data (assuming it's already stored)
+            let existingData = localStorage.getItem("reservations");
+            if (!existingData) {
+              existingData = "[]"; // Initialize empty array if not found
+            }
+            
+            // Parse existing data and add new location
+            const parsedData = JSON.parse(existingData);
+            parsedData.push(newLocation);
+            
+            // Stringify updated data and store in Local Storage
+            const updatedDataString = JSON.stringify(parsedData);
+            localStorage.setItem("reservations", updatedDataString);
+            
+            // Clear input field
+            $("#locationInput").val("");
+            
+            // Display success message (optional)
+            alert("Location added successfully!");
           });
         });
-        
-        // Close modal when clicking the close button (optional)
-        const closeButton = document.querySelector('.btn-close');
-        
-        closeButton.addEventListener('click', () => {
-          modalImage.src = "";
-        });
-    </script>
-    <script>
-        const themeSlider = document.getElementById('theme-slider');
-        const rootElement = document.documentElement;
-    
-        themeSlider.addEventListener('input', () => {
-          const sliderValue = themeSlider.value;
-          const primaryColor = `hsl(${sliderValue}, 100%, 50%)`; // Generate color based on slider value
-    
-          rootElement.style.setProperty('--primary', primaryColor);
-        });
-    </script>
-    <script>
-        function showErrorNotification() {
-        alert("This page is not found! (Error 404)"); // Simulate Toastr notification (limited functionality)
-}
+      </script>
 
-    </script>    
+
+   
         
 </body>
 

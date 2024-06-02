@@ -91,5 +91,95 @@
     });
     
 })(jQuery);
+//My scripts
 
+//Interactive gallery
 
+const imageLinks = document.querySelectorAll('.image-link');
+        const modalImage = document.getElementById('modal-image');
+        
+        imageLinks.forEach(link => {
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+        
+            const imageUrl = link.querySelector('img').src;
+            modalImage.src = imageUrl;
+        
+            const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+            modal.show();
+        
+            // Set image to full size after modal shows (ensures image is loaded)
+            modalImage.onload = () => {
+              modalImage.style.width = '100%';
+              modalImage.style.height = 'auto';
+            };
+          });
+        });
+        
+        // Close modal when clicking the close button (optional)
+        const closeButton = document.querySelector('.btn-close');
+        
+        closeButton.addEventListener('click', () => {
+          modalImage.src = "";
+});
+
+        //Notification for 404 error page
+
+function showErrorNotification() {
+     alert("This page is not found! (Error 404)"); // Simulate Toastr notification (limited functionality)
+}
+
+//Theme switcher
+
+document.getElementById('themeToggleBtn').addEventListener('click', function() {
+    const root = document.documentElement;
+    const primaryColor = getComputedStyle(root).getPropertyValue('--bs-primary').trim();
+    const secondaryColor = getComputedStyle(root).getPropertyValue('--bs-secondary').trim();
+
+    root.style.setProperty('--bs-primary', secondaryColor);
+    root.style.setProperty('--bs-secondary', primaryColor);
+
+    // Toggle the button class to reflect the new theme
+    this.classList.toggle('btn-primary');
+    this.classList.toggle('btn-secondary');
+  });
+
+//Content Toggle
+
+  document.getElementById('readMoreBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+    const toggleText = document.getElementById('toggleText');
+    if (toggleText.style.display === 'none' || toggleText.style.display === '') {
+      toggleText.style.display = 'block';
+      this.textContent = 'Read Less';
+    } else {
+      toggleText.style.display = 'none';
+      this.textContent = 'Read More';
+    }
+  });
+
+  document.getElementById('readMoreBtn2').addEventListener('click', function(event) {
+    event.preventDefault();
+    const toggleText = document.getElementById('toggleText2');
+    if (toggleText.style.display === 'none' || toggleText.style.display === '') {
+      toggleText.style.display = 'block';
+      this.textContent = 'Read Less';
+    } else {
+      toggleText.style.display = 'none';
+      this.textContent = 'Read More';
+    }
+  });
+
+  document.getElementById('readMoreBtn3').addEventListener('click', function(event) {
+    event.preventDefault();
+    const toggleText = document.getElementById('toggleText3');
+    if (toggleText.style.display === 'none' || toggleText.style.display === '') {
+      toggleText.style.display = 'block';
+      this.textContent = 'Read Less';
+    } else {
+      toggleText.style.display = 'none';
+      this.textContent = 'Read More';
+    }
+  });
+
+  //Form reservation
